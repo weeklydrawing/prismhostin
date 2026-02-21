@@ -159,7 +159,9 @@ const PlanCard = ({
     </ul>
 
     <motion.a
-      href="#"
+      href="https://discord.gg/M8tFEWJHVS"
+      target="_blank"
+      rel="noopener noreferrer"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       className={`block rounded-xl py-3 text-center text-sm font-semibold transition-all duration-300 ${
