@@ -1,4 +1,5 @@
 import { ArrowRight, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -23,13 +24,13 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          <a
-            href="#bot-plans"
+          <Link
+            to="/plans"
             className="btn-primary-glow inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-primary-foreground"
           >
             View Plans
             <ArrowRight size={16} />
-          </a>
+          </Link>
           <a
             href="#features"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-8 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
