@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -28,12 +29,12 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a
-            href="#bot-plans"
+          <Link
+            to="/plans"
             className="btn-primary-glow rounded-full px-5 py-2 text-sm font-medium text-primary-foreground"
           >
             Get Started
-          </a>
+          </Link>
         </div>
 
         <button
@@ -57,13 +58,13 @@ const Navbar = () => {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#bot-plans"
+            <Link
+              to="/plans"
               className="btn-primary-glow mt-2 rounded-full px-5 py-2 text-center text-sm font-medium text-primary-foreground"
               onClick={() => setOpen(false)}
             >
               Get Started
-            </a>
+            </Link>
           </div>
         </div>
       )}
