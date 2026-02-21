@@ -56,7 +56,9 @@ const PricingCard = ({ name, price, ram, cpu, storage, features, popular }: Pric
       </ul>
 
       <a
-        href="#"
+        href="https://discord.gg/M8tFEWJHVS"
+        target="_blank"
+        rel="noopener noreferrer"
         className={`block rounded-xl py-3 text-center text-sm font-semibold transition-all duration-300 ${
           popular
             ? "btn-primary-glow text-primary-foreground"
