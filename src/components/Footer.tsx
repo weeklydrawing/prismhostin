@@ -57,7 +57,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="mailto:info@allay-studios.com" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <a href="mailto:support@prismhosting.ink" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                   Contact
                 </a>
               </li>

@@ -91,7 +91,7 @@ const PrivacyPolicy = () => {
               },
               {
                 title: "15. Contact",
-                content: "For support: info@allay-studios.com\nFor legal inquiries: legal@wonnky.com"
+                content: "For support: support@prismhosting.ink\nFor legal inquiries: legal@prismhosting.ink"
               },
             ].map((section, i) => (
               <motion.div
