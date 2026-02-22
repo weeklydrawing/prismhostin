@@ -35,7 +35,7 @@ const botPlans = [
     ram: "256 MB",
     cpu: "50%",
     storage: "1 GB",
-    features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup"],
+    features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support"],
   },
   {
     name: "Small",
@@ -43,7 +43,7 @@ const botPlans = [
     ram: "500 MB",
     cpu: "75%",
     storage: "2 GB",
-    features: ["Node.js, Python & More", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup"],
+    features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup"],
   },
   {
     name: "Medium",
@@ -51,7 +51,7 @@ const botPlans = [
     ram: "756 MB",
     cpu: "100%",
     storage: "3 GB",
-    features: ["All Languages Supported", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup", "Priority Support"],
+    features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup", "Priority Support"],
     popular: true,
   },
   {
@@ -60,7 +60,7 @@ const botPlans = [
     ram: "1 GB",
     cpu: "125%",
     storage: "4 GB",
-    features: ["All Languages Supported", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup", "Priority Support", "Custom Domain"],
+    features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup", "Priority Support", "Custom Domain"],
   },
 ];
 
