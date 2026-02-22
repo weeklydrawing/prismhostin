@@ -15,7 +15,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="mb-3 text-xl font-bold text-foreground">
-              <span className="text-gradient-blue">Cloud</span>Nest
+              <span className="text-gradient-blue">Prism</span>Hosting
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Lightning-fast hosting for Discord bots and websites. Deploy in seconds.
@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} <span className="font-semibold text-foreground">CloudNest</span>. All rights reserved.
+          © {new Date().getFullYear()} <span className="font-semibold text-foreground">PrismHosting</span>. All rights reserved.
         </div>
       </div>
     </footer>

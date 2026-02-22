@@ -13,13 +13,13 @@ const HeroSection = () => {
           99.9% Uptime Guaranteed
         </div>
 
-        <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-foreground sm:text-7xl animate-fade-up" style={{ animationDelay: "0.1s" }}>
+        <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl md:text-7xl animate-fade-up" style={{ animationDelay: "0.1s" }}>
           Power Your
           <br />
           <span className="text-gradient-blue">Digital Projects</span>
         </h1>
 
-        <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <p className="mx-auto mb-10 max-w-xl text-base text-muted-foreground sm:text-lg animate-fade-up" style={{ animationDelay: "0.2s" }}>
           Lightning-fast Discord bot hosting and web hosting. Deploy in seconds with enterprise-grade infrastructure starting from just £0.50/mo.
         </p>
 
@@ -40,15 +40,15 @@ const HeroSection = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 grid grid-cols-3 gap-8 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+        <div className="mt-16 grid grid-cols-3 gap-4 sm:mt-20 sm:gap-8 animate-fade-up" style={{ animationDelay: "0.4s" }}>
           {[
             { value: "99.9%", label: "Uptime" },
             { value: "<50ms", label: "Latency" },
             { value: "24/7", label: "Support" },
           ].map((s) => (
-            <div key={s.label}>
-              <div className="text-2xl font-bold text-foreground sm:text-3xl">{s.value}</div>
-              <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{s.label}</div>
+            <div key={s.label} className="glass-card rounded-xl p-4 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-[0_4px_20px_hsla(210,100%,50%,0.1)]">
+              <div className="text-xl font-bold text-foreground sm:text-3xl">{s.value}</div>
+              <div className="mt-1 text-[11px] text-muted-foreground sm:text-sm">{s.label}</div>
             </div>
           ))}
         </div>
