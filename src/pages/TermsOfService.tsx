@@ -29,13 +29,13 @@ const TermsOfService = () => {
 
           <div className="prose-custom space-y-8">
             <p className="text-muted-foreground leading-relaxed">
-              These Terms of Service ("Terms" or "ToS") govern your access to and use of any and all services, tools, platforms, sub-projects, websites, applications, APIs, infrastructure, and related software operated or provided by Allay Studios LLC ("we", "our", or "us"). These Terms apply globally to all products and sub-brands, including experimental and unreleased services. By using our services, you confirm that you have read, understood, and fully agree to be legally bound by these Terms.
+              These Terms of Service ("Terms" or "ToS") govern your access to and use of any and all services, tools, platforms, sub-projects, websites, applications, APIs, infrastructure, and related software operated or provided by PrismHosting ("we", "our", or "us"). These Terms apply globally to all products and sub-brands, including experimental and unreleased services. By using our services, you confirm that you have read, understood, and fully agree to be legally bound by these Terms.
             </p>
 
             {[
               {
                 title: "1. Scope of Agreement",
-                content: `These Terms apply to all products and services offered by Allay Studios LLC. We operate both creative and technical service offerings, including commissioned development services and hosting-related infrastructure. This includes:\n\n• Hosting & infrastructure services (game servers, VPS, dedicated servers, databases, cloud storage, ...)\n• Custom development services, software creation, design, and studio-related contract work\n• Web platforms, SaaS tools, portals, automation systems, and internal dashboards\n• APIs, integrations, and experimental or beta platforms\n• Any services provided under affiliated sub-brands, projects, or exploratory releases`
+                content: `These Terms apply to all products and services offered by PrismHosting. We operate both creative and technical service offerings, including commissioned development services and hosting-related infrastructure. This includes:\n\n• Hosting & infrastructure services (game servers, VPS, dedicated servers, databases, cloud storage, ...)\n• Custom development services, software creation, design, and studio-related contract work\n• Web platforms, SaaS tools, portals, automation systems, and internal dashboards\n• APIs, integrations, and experimental or beta platforms\n• Any services provided under affiliated sub-brands, projects, or exploratory releases`
               },
               {
                 title: "2. Account Registration & Responsibilities",
