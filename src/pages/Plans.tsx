@@ -44,6 +44,7 @@ const botPlans = [
     cpu: "75%",
     storage: "2 GB",
     features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup"],
+    popular: true.
   },
   {
     name: "Medium",
@@ -52,7 +53,6 @@ const botPlans = [
     cpu: "100%",
     storage: "3 GB",
     features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup", "Priority Support"],
-    popular: true,
   },
   {
     name: "Large",
@@ -319,8 +319,8 @@ const Plans = () => {
                     className="mx-auto max-w-lg text-muted-foreground"
                   >
                     {selected === "bot"
-                      ? "Run your Discord bots 24/7 with Node.js, Python, Java, and more."
-                      : "Fast, reliable PHP & HTML hosting with NVMe storage and free SSL."}
+                      ? "Run your Discord bots 24/7 with Node.j or Python."
+                      : "Fast, reliable PHP & HTML hosting with NVMe storage."}
                   </motion.p>
                 </div>
               </div>
