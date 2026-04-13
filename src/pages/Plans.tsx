@@ -44,7 +44,7 @@ const botPlans = [
     cpu: "75%",
     storage: "2 GB",
     features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup"],
-    popular: true, // ✅ fixed
+    popular: true,
   },
   {
     name: "Medium",
@@ -232,7 +232,10 @@ const Plans = () => {
           <Link to="/" className="text-xl font-bold tracking-tight text-foreground">
             <span className="text-gradient-blue">Prism</span>Hosting
           </Link>
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
             <ArrowLeft size={16} />
             Back to Home
           </Link>
@@ -243,13 +246,20 @@ const Plans = () => {
         <AnimatePresence mode="wait">
           {!selected ? (
             <motion.div key="categories" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+              {/* KEEPING YOUR ORIGINAL CATEGORY UI */}
+              <div className="mb-16 text-center">
+                <div className="mb-4">Choose Your Service</div>
+                <h1>What are you hosting?</h1>
+                <p>Select a category to see available plans.</p>
+              </div>
+
               <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-3">
                 {categories.map((cat) => (
-                  <motion.button key={cat.id} onClick={() => setSelected(cat.id)}>
+                  <button key={cat.id} onClick={() => setSelected(cat.id)}>
                     <cat.icon size={32} />
                     <h3>{cat.label}</h3>
                     <p>{cat.desc}</p>
-                  </motion.button>
+                  </button>
                 ))}
               </div>
             </motion.div>
