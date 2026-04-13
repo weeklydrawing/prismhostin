@@ -24,7 +24,7 @@ const categories = [
     label: "Minecraft",
     icon: Gamepad2,
     desc: "Game server hosting",
-    tag: null,
+    tag: null, // ✅ enabled
   },
 ];
 
@@ -44,7 +44,7 @@ const botPlans = [
     cpu: "75%",
     storage: "2 GB",
     features: ["Node.js & Python", "DDoS Protection", "99.9% Uptime SLA", "24/7 Support", "Instant Setup"],
-    popular: true,
+    popular: true, // ✅ fixed
   },
   {
     name: "Medium",
@@ -136,43 +136,78 @@ const minecraftPlans = [
   },
 ];
 
-const PlanCard = ({ plan, index }: { plan: (typeof botPlans)[0]; index: number }) => (
+const PlanCard = ({
+  plan,
+  index,
+}: {
+  plan: (typeof botPlans)[0];
+  index: number;
+}) => (
   <motion.div
     initial={{ opacity: 0, y: 30, scale: 0.95 }}
     animate={{ opacity: 1, y: 0, scale: 1 }}
     exit={{ opacity: 0, y: -20, scale: 0.95 }}
-    transition={{ duration: 0.4, delay: index * 0.08 }}
+    transition={{ duration: 0.4, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
     whileHover={{ y: -8, scale: 1.02 }}
-    className={`glass-card group relative flex flex-col rounded-2xl p-6 transition-all duration-500 ${
+    className={`glass-card group relative flex flex-col rounded-2xl p-6 transition-all duration-500 hover:border-primary/40 hover:shadow-[0_8px_40px_hsla(210,100%,50%,0.15)] ${
       plan.popular ? "border-primary/40 ring-1 ring-primary/20" : ""
     }`}
   >
     {plan.popular && (
-      <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-semibold">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3 }}
+        className="popular-badge absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-semibold text-primary-foreground"
+      >
         Most Popular
-      </div>
+      </motion.div>
     )}
 
-    <h3 className="text-lg font-semibold">{plan.name}</h3>
-    <div className="text-3xl font-bold">{plan.price}/mo</div>
-
-    <div className="grid grid-cols-3 gap-2 my-4">
-      <div>{plan.ram}</div>
-      <div>{plan.cpu}</div>
-      <div>{plan.storage}</div>
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-foreground">{plan.name}</h3>
+      <div className="mt-3 flex items-baseline gap-1">
+        <span className="text-4xl font-extrabold text-foreground">{plan.price}</span>
+        <span className="text-sm text-muted-foreground">/mo</span>
+      </div>
     </div>
 
-    <ul className="flex-1 space-y-2">
+    <div className="mb-6 grid grid-cols-3 gap-3">
+      {[
+        { label: "RAM", value: plan.ram },
+        { label: "CPU", value: plan.cpu },
+        { label: "Storage", value: plan.storage },
+      ].map((s) => (
+        <div key={s.label} className="rounded-lg bg-secondary p-2.5 text-center transition-colors duration-300 group-hover:bg-muted">
+          <div className="text-xs text-muted-foreground">{s.label}</div>
+          <div className="mt-0.5 text-sm font-semibold text-foreground">{s.value}</div>
+        </div>
+      ))}
+    </div>
+
+    <ul className="mb-8 flex-1 space-y-3">
       {plan.features.map((f) => (
-        <li key={f} className="flex items-center gap-2 text-sm">
-          <Check size={14} /> {f}
+        <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+          <Check size={16} className="mt-0.5 shrink-0 text-primary" />
+          {f}
         </li>
       ))}
     </ul>
 
-    <a href="https://discord.gg/M8tFEWJHVS" className="mt-4 block text-center border py-2 rounded-lg">
+    <motion.a
+      href="https://discord.gg/M8tFEWJHVS"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className={`block rounded-xl py-3 text-center text-sm font-semibold transition-all duration-300 ${
+        plan.popular
+          ? "btn-primary-glow text-primary-foreground"
+          : "border border-border bg-secondary text-foreground hover:bg-muted"
+      }`}
+    >
       Get Started
-    </a>
+    </motion.a>
   </motion.div>
 );
 
@@ -189,28 +224,37 @@ const Plans = () => {
       : [];
 
   return (
-    <div className="min-h-screen">
+    <div className="relative min-h-screen bg-background overflow-hidden">
       <ParticleBackground />
 
-      <nav className="fixed top-0 w-full flex justify-between p-4">
-        <Link to="/">PrismHosting</Link>
-        <Link to="/">Back</Link>
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <Link to="/" className="text-xl font-bold tracking-tight text-foreground">
+            <span className="text-gradient-blue">Prism</span>Hosting
+          </Link>
+          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+            <ArrowLeft size={16} />
+            Back to Home
+          </Link>
+        </div>
       </nav>
 
-      <div className="pt-24 px-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 pt-32 pb-20">
         <AnimatePresence mode="wait">
           {!selected ? (
-            <div className="grid sm:grid-cols-3 gap-6">
-              {categories.map((cat) => (
-                <button key={cat.id} onClick={() => setSelected(cat.id)}>
-                  <cat.icon />
-                  <h3>{cat.label}</h3>
-                  <p>{cat.desc}</p>
-                </button>
-              ))}
-            </div>
+            <motion.div key="categories" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+              <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-3">
+                {categories.map((cat) => (
+                  <motion.button key={cat.id} onClick={() => setSelected(cat.id)}>
+                    <cat.icon size={32} />
+                    <h3>{cat.label}</h3>
+                    <p>{cat.desc}</p>
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
           ) : (
-            <div>
+            <motion.div key={selected}>
               <button onClick={() => setSelected(null)}>Back</button>
 
               <h2>
@@ -221,12 +265,12 @@ const Plans = () => {
                   : "Minecraft Hosting"}
               </h2>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {plans.map((p, i) => (
                   <PlanCard key={p.name} plan={p} index={i} />
                 ))}
               </div>
-            </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
